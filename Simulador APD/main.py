@@ -4,7 +4,13 @@ from interfazSalida import mostrarResultado
 
 def main():
     # Obtener los datos iniciales una sola vez
-    transiciones, estado_inicial, acepta_por, estados_finales, palabra = datosEntrada()
+    entrada = datosEntrada()
+    if entrada is None:
+        print("Entrada cancelada. Cerrando el programa.")
+        return
+
+    transiciones, estado_inicial, acepta_por, estados_finales, palabra = entrada
+
 
     #Bucle para realizar multiples simulaciones con diferentes palabras
     while True: 

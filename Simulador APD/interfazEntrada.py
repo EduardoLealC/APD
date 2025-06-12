@@ -125,9 +125,11 @@ def datosEntrada():
     # --- Enviar ---
     btn_enviar = tk.Button(ventana, text="Enviar", command=enviar_datos)
     btn_enviar.pack(pady=15)
-
+    ventana.protocol("WM_DELETE_WINDOW", lambda: ventana.destroy())
     ventana.mainloop()
 
     if resultado:
         return (resultado['transiciones'], resultado['estado_inicial'], resultado['acepta_por'],
                 resultado['estados_finales'], resultado['palabra'])
+    else:
+        return None
